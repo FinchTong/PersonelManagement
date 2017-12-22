@@ -21,21 +21,8 @@ public class HelloController {
 
     @RequestMapping(value = {"/welcome**"}, method = RequestMethod.GET)
     public String welcomePage(ModelMap model) {
-        /*ModelAndView model = new ModelAndView();
-        model.addObject("title", "Spring Security Hello World");
-        model.addObject("message", "This is welcome page!");
-        model.setViewName("hello");*/
         model.addAttribute("title", "Hello World!");
         model.addAttribute("message", "This is welcome page!");
-        /*User user = new UserImpl();
-        user.setUserName("tong");
-        user.setPassword("123456");
-        userManage.saveUser(user);*/
-        Role role = new RoleImpl();
-        role.setDescription("管理员");
-        role.setExternalReference("admin");
-        role.setName("管理员");
-        roleManage.saveRole(role);
         return "hello";
     }
 
@@ -46,5 +33,10 @@ public class HelloController {
         model.addObject("message", "This is protected page!");
         model.setViewName("admin");
         return model;
+    }
+
+    @RequestMapping(value = "/addRole", method = RequestMethod.GET)
+    public String addRoleView() {
+        return "AddRolePage";
     }
 }

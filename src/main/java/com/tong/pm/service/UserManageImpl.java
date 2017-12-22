@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service(value = "userManage")
 @Transactional
-public class UserManageImpl  implements UserManage{
+public class UserManageImpl implements UserManage {
 
     @Autowired
     UserDao userDao;
@@ -22,7 +22,12 @@ public class UserManageImpl  implements UserManage{
     }
 
     @Override
-    public User findUserById(long id){
+    public User findUserById(long id) {
         return userDao.findByOid(id);
+    }
+
+    @Override
+    public void deleteUser(User user) {
+        userDao.delete(user);
     }
 }

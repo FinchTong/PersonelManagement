@@ -6,4 +6,6 @@ public interface UserDao {
     void save(User user);
 
     User findByOid(long oid);
+
+    void delete(User user);
 }
