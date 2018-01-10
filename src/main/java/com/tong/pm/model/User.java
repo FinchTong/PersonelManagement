@@ -44,13 +44,13 @@ public interface User extends DataObject{
      * get address
      * @return address
      */
-    String getAddress();
+    Address getAddress();
 
     /**
      * set address
      * @param address
      */
-    void setAddress(String address);
+    void setAddress(Address address);
 
     Set<UserRoleAssignment> getUserRoleAssignments();
 
