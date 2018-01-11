@@ -20,8 +20,8 @@ public class UserImpl extends DataObjectImpl implements User {
     @Column(length = 128)
     private String email;
 
-    @Column(length = 256)
-    private String address;
+    @OneToOne(targetEntity = AddressImpl.class, mappedBy = "user")
+    private Address address;
 
     @OneToMany(targetEntity = UserRoleAssignmentImpl.class, cascade = CascadeType.ALL,orphanRemoval = true)
     @JoinColumn(name = "userId")
@@ -58,12 +58,12 @@ public class UserImpl extends DataObjectImpl implements User {
     }
 
     @Override
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
     @Override
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -83,7 +83,6 @@ public class UserImpl extends DataObjectImpl implements User {
                 "userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
                 '}';
     }
 }
