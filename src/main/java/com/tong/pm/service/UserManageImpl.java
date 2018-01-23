@@ -1,7 +1,7 @@
 package com.tong.pm.service;
 
 import com.tong.pm.dao.UserDao;
-import com.tong.pm.model.User;
+import com.tong.pm.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,5 +29,15 @@ public class UserManageImpl implements UserManage {
     @Override
     public void deleteUser(User user) {
         userDao.delete(user);
+    }
+
+    @Override
+    public User userVoToDo(UserVo vo) {
+        User user = new UserImpl();
+        user.setUserName(vo.getUserName());
+        user.setPassword(vo.getPassword());
+        user.setEmail(vo.getEmail());
+        user.setAddress(new AddressImpl(vo.getAddress()));
+        return user;
     }
 }

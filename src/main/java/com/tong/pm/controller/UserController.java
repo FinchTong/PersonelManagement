@@ -1,4 +1,4 @@
-package com.tong.controller;
+package com.tong.pm.controller;
 
 import com.tong.pm.model.Role;
 import com.tong.pm.model.User;
@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     RoleManage roleManage;
 
-    @RequestMapping(value = "/rest/getUser/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/rest/user/{id}", method = RequestMethod.GET)
     public String getUserInfo(@PathVariable long id) {
         User user = null;
         if (id != 0) {

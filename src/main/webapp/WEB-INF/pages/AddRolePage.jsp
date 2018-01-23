@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: BPMDEV01
+  User: finch
   Date: 2017/12/21
   Time: 16:32
   To change this template use File | Settings | File Templates.
@@ -11,9 +11,8 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="http://www.siebre.com/jsp/pd" prefix="pd" %>
 
-<tiles:insertTemplate template="/pages/pm_template.jsp" flush="true">
+<tiles:insertTemplate template="pm_template.jsp" flush="true">
     <tiles:putAttribute name="title" type="string">
         add Role
     </tiles:putAttribute>

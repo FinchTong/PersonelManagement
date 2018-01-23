@@ -15,6 +15,10 @@ public class AddressImpl extends DataObjectImpl implements Address{
     @JoinColumn(name = "user_id")
     private User user;
 
+    public AddressImpl(String addressDetail) {
+        this.addressDetail = addressDetail;
+    }
+
     @Override
     public String getAddressDetail() {
         return addressDetail;
